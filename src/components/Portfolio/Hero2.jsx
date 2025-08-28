@@ -3,17 +3,24 @@ import styled from "styled-components";
 import Button from "../Button/Button"; // seu botão já estilizado
 
 const Hero2 = () => {
-    return (
-        <Wrapper>
-            <div className="content">
-                <div className="text">
-                    <h1>Leve seus projetos front-end ao próximo nível com interfaces modernas, responsivas e interativas</h1>
-                    <p>Para criar experiências digitais de alto impacto, é essencial unir design, usabilidade e tecnologia. Desenvolvo soluções front-end elegantes e funcionais, focadas na performance, acessibilidade e experiência do usuário, garantindo que cada projeto alcance seu potencial máximo.</p>
-                    <Button text="Ver Projetos" link="#projetos" />
-                </div>
-            </div>
-        </Wrapper>
-    );
+
+  const scrollParaProjetos = (e) => {
+    e.preventDefault(); // evita jump instantâneo
+    const section = document.querySelector("#projetos");
+    section?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <Wrapper>
+      <div className="content">
+        <div className="text">
+          <h1>Leve seus projetos front-end ao próximo nível com interfaces modernas, responsivas e interativas</h1>
+          <p>Para criar experiências digitais de alto impacto, é essencial unir design, usabilidade e tecnologia. Desenvolvo soluções front-end elegantes e funcionais, focadas na performance, acessibilidade e experiência do usuário, garantindo que cada projeto alcance seu potencial máximo.</p>
+          <Button text="Ver Projetos" onClick={scrollParaProjetos} />
+        </div>
+      </div>
+    </Wrapper>
+  );
 };
 
 export default Hero2;
